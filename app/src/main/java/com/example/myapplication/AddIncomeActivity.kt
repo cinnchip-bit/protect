@@ -18,7 +18,7 @@ import java.util.Locale
 
 class AddIncomeActivity : AppCompatActivity() {
 
-    private var selectedCategory = "💰 Зарплата"
+    private var selectedCategory = "Зарплата"
     private lateinit var tvSelectedCategory: TextView
     private lateinit var etAmount: EditText
     private lateinit var etNote: EditText
@@ -56,11 +56,11 @@ class AddIncomeActivity : AppCompatActivity() {
 
         btnBack.setOnClickListener { finish() }
 
-        setupCategoryClick(R.id.cat_salary, "💰 Зарплата")
-        setupCategoryClick(R.id.cat_gift, "🎁 Подарок")
-        setupCategoryClick(R.id.cat_freelance, "💻 Подработка")
-        setupCategoryClick(R.id.cat_investment, "📈 Инвестиции")
-        setupCategoryClick(R.id.cat_other_income, "❓ Другое")
+        setupCategoryClick(R.id.cat_salary, "Зарплата")
+        setupCategoryClick(R.id.cat_gift, "Подарок")
+        setupCategoryClick(R.id.cat_freelance, "Подработка")
+        setupCategoryClick(R.id.cat_investment, "Инвестиции")
+        setupCategoryClick(R.id.cat_other_income, "Другое")
 
         layoutDate.setOnClickListener { showDatePicker() }
         btnSave.setOnClickListener { saveTransaction() }
@@ -104,7 +104,7 @@ class AddIncomeActivity : AppCompatActivity() {
         }
         setResult(RESULT_OK, resultIntent)
 
-        Toast.makeText(this, "✅ Доход сохранён!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Доход сохранён!", Toast.LENGTH_SHORT).show()
         finish()
     }
 }

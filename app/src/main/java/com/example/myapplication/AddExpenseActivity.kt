@@ -18,7 +18,7 @@ import java.util.Locale
 
 class AddExpenseActivity : AppCompatActivity() {
 
-    private var selectedCategory = "🍕 Еда"
+    private var selectedCategory = "Еда"
     private lateinit var tvSelectedCategory: TextView
     private lateinit var etAmount: EditText
     private lateinit var etNote: EditText
@@ -56,14 +56,14 @@ class AddExpenseActivity : AppCompatActivity() {
 
         btnBack.setOnClickListener { finish() }
 
-        setupCategoryClick(R.id.cat_food, "🍕 Еда")
-        setupCategoryClick(R.id.cat_transport, "🚗 Транспорт")
-        setupCategoryClick(R.id.cat_entertainment, "🎮 Развлечения")
-        setupCategoryClick(R.id.cat_shopping, "🛒 Покупки")
-        setupCategoryClick(R.id.cat_health, "💊 Здоровье")
-        setupCategoryClick(R.id.cat_education, "📚 Учёба")
-        setupCategoryClick(R.id.cat_home, "🏠 Жильё")
-        setupCategoryClick(R.id.cat_other_expense, "❓ Другое")
+        setupCategoryClick(R.id.cat_food, "Еда")
+        setupCategoryClick(R.id.cat_transport, "Транспорт")
+        setupCategoryClick(R.id.cat_entertainment, "Развлечения")
+        setupCategoryClick(R.id.cat_shopping, "Покупки")
+        setupCategoryClick(R.id.cat_health, "Здоровье")
+        setupCategoryClick(R.id.cat_education, "Учёба")
+        setupCategoryClick(R.id.cat_home, "Жильё")
+        setupCategoryClick(R.id.cat_other_expense, "Другое")
 
         layoutDate.setOnClickListener { showDatePicker() }
         btnSave.setOnClickListener { saveTransaction() }
@@ -107,7 +107,7 @@ class AddExpenseActivity : AppCompatActivity() {
         }
         setResult(RESULT_OK, resultIntent)
 
-        Toast.makeText(this, "✅ Расход сохранён!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Расход сохранён!", Toast.LENGTH_SHORT).show()
         finish()
     }
 }

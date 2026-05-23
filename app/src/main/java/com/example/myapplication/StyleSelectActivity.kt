@@ -1,7 +1,9 @@
 package com.example.myapplication
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +20,7 @@ class StyleSelectActivity : AppCompatActivity() {
         val radioCaring = findViewById<RadioButton>(R.id.radio_caring)
         val radioStrict = findViewById<RadioButton>(R.id.radio_strict)
         val btnContinue = findViewById<Button>(R.id.btn_continue)
+        val btnBack = findViewById<ImageButton>(R.id.btn_back)
 
         val cardEnergetic = findViewById<CardView>(R.id.card_energetic)
         val cardBold = findViewById<CardView>(R.id.card_bold)
@@ -26,12 +29,10 @@ class StyleSelectActivity : AppCompatActivity() {
 
         val allRadios = listOf(radioEnergetic, radioBold, radioCaring, radioStrict)
 
-        // Отключаем встроенную обработку кликов
         for (radio in allRadios) {
             radio.isClickable = false
         }
 
-        // Обработчик для каждой пары карточка + радиокнопка
         setupCardWithRadio(cardEnergetic, radioEnergetic, allRadios)
         setupCardWithRadio(cardBold, radioBold, allRadios)
         setupCardWithRadio(cardCaring, radioCaring, allRadios)
@@ -39,37 +40,36 @@ class StyleSelectActivity : AppCompatActivity() {
 
         btnContinue.setOnClickListener {
             val selected = when {
-                radioEnergetic.isChecked -> "Энергичный"
-                radioBold.isChecked -> "Дерзкий"
+                radioEnergetic.isChecked -> "Монах"
+                radioBold.isChecked -> "Темщик"
                 radioCaring.isChecked -> "Заботливый"
-                radioStrict.isChecked -> "Строгий"
+                radioStrict.isChecked -> "Тренер"
                 else -> null
             }
 
             if (selected == null) {
                 Toast.makeText(this, "Выберите стиль общения", Toast.LENGTH_SHORT).show()
             } else {
-                // Переход на новый экран
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("SELECTED_STYLE", selected)
                 startActivity(intent)
             }
+        }
+
+        btnBack.setOnClickListener {
+            finish()
         }
     }
 
     private fun setupCardWithRadio(card: CardView, radio: RadioButton, allRadios: List<RadioButton>) {
         val clickListener = {
             if (radio.isChecked) {
-                // Уже выбрана — снимаем
                 radio.isChecked = false
             } else {
-                // Не выбрана — снимаем все и выбираем эту
                 uncheckAll(allRadios)
                 radio.isChecked = true
             }
         }
-
-        // Вешаем слушатель только на карточку
         card.setOnClickListener { clickListener() }
     }
 

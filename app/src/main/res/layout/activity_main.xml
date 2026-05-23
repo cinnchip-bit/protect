@@ -11,7 +11,15 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Верхняя панель со стрелкой -->
+        <!-- Контейнер для всплывающих уведомлений -->
+        <LinearLayout
+            android:id="@+id/notification_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Верхняя панель со стрелкой и настройками -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -26,6 +34,19 @@
                 android:src="@drawable/ic_arrow_back"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Назад" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/btn_settings"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_settings"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Настройки" />
 
         </LinearLayout>
 
@@ -43,7 +64,7 @@
             android:id="@+id/tv_selected_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Выбран стиль: Энергичный"
+            android:text="Выбран стиль: Не выбран"
             android:textSize="14sp"
             android:textColor="#888888"
             android:layout_marginBottom="24dp" />
@@ -76,10 +97,19 @@
                     android:id="@+id/tv_balance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15 000 ₽"
+                    android:text="0 P"
                     android:textSize="32sp"
                     android:textColor="#000000"
                     android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/tv_limit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Лимит на месяц: не установлен"
+                    android:textSize="13sp"
+                    android:textColor="#888888"
                     android:layout_marginBottom="12dp" />
 
                 <LinearLayout
@@ -93,7 +123,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Доход: 20 000 ₽"
+                        android:text="Доход: 0 P"
                         android:textSize="13sp"
                         android:textColor="#4CAF50" />
 
@@ -102,7 +132,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Расход: 5 000 ₽"
+                        android:text="Расход: 0 P"
                         android:textSize="13sp"
                         android:textColor="#F44336"
                         android:gravity="end" />
@@ -119,7 +149,7 @@
 
                     <View
                         android:id="@+id/view_progress"
-                        android:layout_width="60dp"
+                        android:layout_width="0dp"
                         android:layout_height="6dp"
                         android:background="#F44336" />
 
@@ -134,7 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="28dp">
+            android:layout_marginBottom="12dp">
 
             <Button
                 android:id="@+id/btn_add_income"
@@ -165,6 +195,20 @@
                 app:cornerRadius="12dp" />
 
         </LinearLayout>
+
+        <!-- Тестовая кнопка уведомлений -->
+        <Button
+            android:id="@+id/btn_test_notification"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="ТЕСТ УВЕДОМЛЕНИЯ"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:backgroundTint="#FF9800"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:layout_marginBottom="28dp"
+            app:cornerRadius="12dp" />
 
         <!-- Заголовок Сегодня -->
         <TextView
