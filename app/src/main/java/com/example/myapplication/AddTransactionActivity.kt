@@ -39,11 +39,9 @@ class AddTransactionActivity : AppCompatActivity() {
         val btnSave = findViewById<Button>(R.id.btn_save)
         val layoutDate = findViewById<LinearLayout>(R.id.layout_date)
 
-        // Установка текущей даты
         val sdf = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
         tvDate.text = sdf.format(Calendar.getInstance().time)
 
-        // Приём типа транзакции с главного экрана
         val transactionType = intent.getStringExtra("TRANSACTION_TYPE") ?: "expense"
         if (transactionType == "income") {
             selectType("income")
@@ -51,14 +49,11 @@ class AddTransactionActivity : AppCompatActivity() {
             selectType("expense")
         }
 
-        // Стрелка назад — возврат на главный экран
         btnBack.setOnClickListener { finish() }
 
-        // Переключатель Расход / Доход
         btnExpenseTab.setOnClickListener { selectType("expense") }
         btnIncomeTab.setOnClickListener { selectType("income") }
 
-        // Выбор категории
         setupCategoryClick(R.id.cat_food, "🍕 Еда")
         setupCategoryClick(R.id.cat_transport, "🚗 Транспорт")
         setupCategoryClick(R.id.cat_entertainment, "🎮 Развлечения")
@@ -68,10 +63,8 @@ class AddTransactionActivity : AppCompatActivity() {
         setupCategoryClick(R.id.cat_home, "🏠 Жильё")
         setupCategoryClick(R.id.cat_other, "❓ Другое")
 
-        // Выбор даты
         layoutDate.setOnClickListener { showDatePicker() }
 
-        // Сохранение
         btnSave.setOnClickListener { saveTransaction() }
     }
 
@@ -121,15 +114,7 @@ class AddTransactionActivity : AppCompatActivity() {
         val note = etNote.text.toString()
         val date = tvDate.text.toString()
 
-        // TODO: сохранить в базу данных через Room
-        // val transaction = Transaction(
-        //     type = selectedType,
-        //     category = selectedCategory,
-        //     amount = amount,
-        //     note = note.ifEmpty { null },
-        //     date = date
-        // )
-        // repository.insert(transaction)
+
 
         Toast.makeText(this, "✅ Запись сохранена!", Toast.LENGTH_SHORT).show()
         finish()

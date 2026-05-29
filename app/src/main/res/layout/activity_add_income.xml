@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Верхняя панель -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -38,7 +37,6 @@
 
         </LinearLayout>
 
-        <!-- Метка Доход -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -61,7 +59,6 @@
 
         </LinearLayout>
 
-        <!-- Категории доходов -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -214,7 +211,6 @@
             android:layout_marginBottom="24dp"
             android:layout_marginTop="8dp" />
 
-        <!-- Сумма -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -253,7 +249,6 @@
 
         </LinearLayout>
 
-        <!-- Заметка -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -275,7 +270,6 @@
             android:paddingEnd="16dp"
             android:layout_marginBottom="20dp" />
 
-        <!-- Дата -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -316,7 +310,6 @@
 
         </LinearLayout>
 
-        <!-- Кнопка -->
         <Button
             android:id="@+id/btn_save"
             android:layout_width="match_parent"

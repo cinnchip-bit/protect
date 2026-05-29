@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Верхняя панель со стрелкой назад -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -38,7 +37,6 @@
 
         </LinearLayout>
 
-        <!-- Переключатель Расход / Доход -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -75,7 +73,6 @@
 
         </LinearLayout>
 
-        <!-- Заголовок категорий -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +81,6 @@
             android:textColor="#888888"
             android:layout_marginBottom="8dp" />
 
-        <!-- Сетка категорий (2x4) -->
         <GridLayout
             android:id="@+id/grid_categories"
             android:layout_width="match_parent"
@@ -93,7 +89,6 @@
             android:rowCount="2"
             android:layout_marginBottom="4dp">
 
-            <!-- Строка 1 -->
             <LinearLayout
                 android:id="@+id/cat_food"
                 android:layout_width="0dp"
@@ -202,7 +197,6 @@
                     android:layout_marginTop="4dp" />
             </LinearLayout>
 
-            <!-- Строка 2 -->
             <LinearLayout
                 android:id="@+id/cat_health"
                 android:layout_width="0dp"
@@ -313,7 +307,6 @@
 
         </GridLayout>
 
-        <!-- Выбранная категория -->
         <TextView
             android:id="@+id/tv_selected_category"
             android:layout_width="wrap_content"
@@ -325,7 +318,6 @@
             android:layout_marginBottom="24dp"
             android:layout_marginTop="8dp" />
 
-        <!-- Поле суммы -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -365,7 +357,6 @@
 
         </LinearLayout>
 
-        <!-- Поле заметки -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -387,7 +378,6 @@
             android:paddingEnd="16dp"
             android:layout_marginBottom="20dp" />
 
-        <!-- Поле даты -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -428,7 +418,6 @@
 
         </LinearLayout>
 
-        <!-- Кнопка Сохранить -->
         <Button
             android:id="@+id/btn_save"
             android:layout_width="match_parent"

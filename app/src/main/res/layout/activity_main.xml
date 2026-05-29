@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Контейнер для всплывающих уведомлений -->
         <LinearLayout
             android:id="@+id/notification_container"
             android:layout_width="match_parent"
@@ -19,7 +18,6 @@
             android:orientation="vertical"
             android:layout_marginBottom="16dp" />
 
-        <!-- Верхняя панель со стрелкой и настройками -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -50,7 +48,6 @@
 
         </LinearLayout>
 
-        <!-- Приветствие -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +66,6 @@
             android:textColor="#888888"
             android:layout_marginBottom="24dp" />
 
-        <!-- Карточка баланса -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -139,7 +135,6 @@
 
                 </LinearLayout>
 
-                <!-- Шкала прогресса -->
                 <LinearLayout
                     android:id="@+id/layout_progress_bg"
                     android:layout_width="match_parent"
@@ -159,7 +154,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <!-- Кнопки Доход и Расход -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -196,21 +190,7 @@
 
         </LinearLayout>
 
-        <!-- Тестовая кнопка уведомлений -->
-        <Button
-            android:id="@+id/btn_test_notification"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="ТЕСТ УВЕДОМЛЕНИЯ"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:backgroundTint="#FF9800"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:layout_marginBottom="28dp"
-            app:cornerRadius="12dp" />
 
-        <!-- Заголовок Сегодня -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -220,7 +200,6 @@
             android:letterSpacing="0.1"
             android:layout_marginBottom="12dp" />
 
-        <!-- Динамический список транзакций -->
         <LinearLayout
             android:id="@+id/layout_transactions"
             android:layout_width="match_parent"

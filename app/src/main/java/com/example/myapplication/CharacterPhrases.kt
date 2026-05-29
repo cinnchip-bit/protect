@@ -54,7 +54,7 @@ object CharacterPhrases {
         Mood.GREETING to listOf(
             Phrase("Ну чё, бабки считать будем или просто посидим?"),
             Phrase("Салют, мамкин инвестор! Чё там по кэшу?"),
-            Phrase("Йоу! Открывай приложение, ща будем тему мутить")
+            Phrase("Открывай приложение, ща будем тему мутить")
         ),
         Mood.NO_TRANSACTIONS_TODAY to listOf(
             Phrase("Эй, ты там уснул? Транзакции сами себя не запишут"),

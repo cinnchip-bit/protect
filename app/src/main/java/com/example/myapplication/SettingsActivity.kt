@@ -30,14 +30,12 @@ class SettingsActivity : AppCompatActivity() {
 
         prefs = getSharedPreferences("finance_prefs", MODE_PRIVATE)
 
-        // Показать текущий лимит
         val currentLimit = prefs.getFloat("monthly_limit", -1f)
         if (currentLimit > 0) {
             tvCurrentLimit.text = "Текущий лимит: ${String.format("%,.0f P", currentLimit).replace(',', ' ')}"
             etLimit.setText(String.format("%,.0f", currentLimit).replace(',', '.'))
         }
 
-        // Фильтр ввода
         etLimit.addTextChangedListener(object : TextWatcher {
             private var isEditing = false
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -65,7 +63,6 @@ class SettingsActivity : AppCompatActivity() {
             prefs.edit().putFloat("monthly_limit", limit).apply()
             Toast.makeText(this, "Лимит сохранён!", Toast.LENGTH_SHORT).show()
 
-            // Отправляем результат обратно
             val resultIntent = Intent().apply {
                 putExtra("MONTHLY_LIMIT", limit)
             }

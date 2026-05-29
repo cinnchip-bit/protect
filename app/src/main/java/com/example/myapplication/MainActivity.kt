@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         prefs = getSharedPreferences("finance_prefs", MODE_PRIVATE)
 
-        // Запрос разрешения на уведомления (Android 13+)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
                 != android.content.pm.PackageManager.PERMISSION_GRANTED) {
@@ -89,20 +89,7 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_SETTINGS)
         }
 
-        // Тестовая кнопка уведомлений
-        val btnTest = findViewById<Button>(R.id.btn_test_notification)
-        btnTest.setOnClickListener {
-            val style = prefs.getString("selected_style", "Монах") ?: "Монах"
-            val phrase = CharacterPhrases.getPhrase(style, Mood.NO_TRANSACTIONS_TODAY)
-            val title = when (style) {
-                "Монах" -> "Монах"
-                "Темщик" -> "Темщик"
-                "Заботливый" -> "Заботливый"
-                "Тренер" -> "Тренер"
-                else -> "Finex"
-            }
-            showInAppNotification(title, phrase)
-        }
+
 
         val savedLimit = prefs.getFloat("monthly_limit", -1f)
         updateLimitDisplay(savedLimit)
@@ -130,7 +117,8 @@ class MainActivity : AppCompatActivity() {
                         }
                         updateUI()
 
-                        if (monthlyLimit > 0 && totalExpense > monthlyLimit) {
+                        val balance = totalIncome - totalExpense
+                        if (monthlyLimit > 0 && totalExpense > monthlyLimit && balance < 0) {
                             sendInstantNotification(Mood.OVER_LIMIT)
                         } else if (totalExpense > totalIncome && totalIncome > 0) {
                             sendInstantNotification(Mood.OVERSPENDING)
@@ -157,11 +145,13 @@ class MainActivity : AppCompatActivity() {
     private fun updateUI() {
         val balance = totalIncome - totalExpense
         tvBalance.text = String.format("%,.0f P", balance).replace(',', ' ')
-        tvIncome.text = String.format("Доход: %,.0f P", totalIncome).replace(',', ' ')
-        tvExpense.text = String.format("Расход: %,.0f P", totalExpense).replace(',', ' ')
 
-        if (monthlyLimit > 0 && totalExpense > monthlyLimit) {
+        tvIncome.text = String.format("Доход: %,.0f P", totalIncome).replace(',', ' ')
+
+        if (monthlyLimit > 0 && totalExpense > monthlyLimit && balance < 0) {
             tvExpense.text = String.format("Расход: %,.0f P (превышен лимит!)", totalExpense).replace(',', ' ')
+        } else {
+            tvExpense.text = String.format("Расход: %,.0f P", totalExpense).replace(',', ' ')
         }
 
         layoutProgressBg.post {
@@ -310,12 +300,10 @@ class MainActivity : AppCompatActivity() {
         card.addView(textLayout)
         notificationContainer.addView(card, 0)
 
-        // Автоматически скрыть через 5 секунд
         card.postDelayed({
             notificationContainer.removeView(card)
         }, 5000)
 
-        // Свайп для закрытия
         card.setOnTouchListener(object : View.OnTouchListener {
             private var startX = 0f
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
